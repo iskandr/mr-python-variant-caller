@@ -23,11 +23,11 @@ for line in sys.stdin:
     else:
         if current_locus:
             # write result to STDOUT
-            print '%s\t%s' % (current_locus, current_count)
+            print '%s\t%s' % (current_locus, current_count.most_common(1)[0][0])
         current_count = Counter()
         current_count[base] += 1
         current_locus = locus
 
 # do not forget to output the last word if needed!
 if current_locus == locus:
-    print '%s\t%s' % (current_locus, current_count)
+    print '%s\t%s' % (current_locus, current_count.most_common(1)[0][0])
